@@ -27,4 +27,4 @@ CRediT = CRediT %>%
   dplyr::select(-`#`) %>%
   dplyr::mutate(Role = gsub("\\*", "", Role))
 
-usethis::use_data(CRediT)
+usethis::use_data(CRediT, overwrite = TRUE)

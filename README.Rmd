@@ -101,7 +101,7 @@ data("CRediT")
 Show whole table.
 
 ```{r}
-knitr::kable(CRediT)
+knitr::kable(CRediT, format = "html")
 ```
 
 ## To do

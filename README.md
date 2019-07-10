@@ -127,29 +127,281 @@ package.
 data("CRediT")
 ```
 
-Show whole
-table.
+Show whole table.
 
 ``` r
-knitr::kable(CRediT)
+knitr::kable(CRediT, format = "html")
 ```
 
-| Role                         | Definition                                                                                                                                                                                                      |
-| :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Conceptualization            | Ideas; formulation or evolution of overarching research goals and aims.                                                                                                                                         |
-| Data curation                | Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later re-use. |
-| Formal analysis              | Application of statistical, mathematical, computational, or other formal techniques to analyse or synthesize study data.                                                                                        |
-| Funding acquisition          | Acquisition of the financial support for the project leading to this publication.                                                                                                                               |
-| Investigation                | Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection.                                                                                          |
-| Methodology                  | Development or design of methodology; creation of models.                                                                                                                                                       |
-| Project administration       | Management and coordination responsibility for the research activity planning and execution.                                                                                                                    |
-| Resources                    | Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools.                                                        |
-| Software                     | Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components.                                             |
-| Supervision                  | Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team.                                                                       |
-| Validation                   | Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs.                                                      |
-| Visualization                | Preparation, creation and/or presentation of the published work, specifically visualization/data presentation.                                                                                                  |
-| Writing – original draft P   | reparation, creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation).                                                                     |
-| Writing – review & editing P | reparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision – including pre- or post-publication stages.     |
+<table>
+
+<thead>
+
+<tr>
+
+<th style="text-align:left;">
+
+Role
+
+</th>
+
+<th style="text-align:left;">
+
+Definition
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td style="text-align:left;">
+
+Conceptualization
+
+</td>
+
+<td style="text-align:left;">
+
+Ideas; formulation or evolution of overarching research goals and aims.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Data curation
+
+</td>
+
+<td style="text-align:left;">
+
+Management activities to annotate (produce metadata), scrub data and
+maintain research data (including software code, where it is necessary
+for interpreting the data itself) for initial use and later re-use.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Formal analysis
+
+</td>
+
+<td style="text-align:left;">
+
+Application of statistical, mathematical, computational, or other formal
+techniques to analyse or synthesize study data.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Funding acquisition
+
+</td>
+
+<td style="text-align:left;">
+
+Acquisition of the financial support for the project leading to this
+publication.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Investigation
+
+</td>
+
+<td style="text-align:left;">
+
+Conducting a research and investigation process, specifically performing
+the experiments, or data/evidence collection.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Methodology
+
+</td>
+
+<td style="text-align:left;">
+
+Development or design of methodology; creation of models.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Project administration
+
+</td>
+
+<td style="text-align:left;">
+
+Management and coordination responsibility for the research activity
+planning and execution.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Resources
+
+</td>
+
+<td style="text-align:left;">
+
+Provision of study materials, reagents, materials, patients, laboratory
+samples, animals, instrumentation, computing resources, or other
+analysis tools.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Software
+
+</td>
+
+<td style="text-align:left;">
+
+Programming, software development; designing computer programs;
+implementation of the computer code and supporting algorithms; testing
+of existing code components.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Supervision
+
+</td>
+
+<td style="text-align:left;">
+
+Oversight and leadership responsibility for the research activity
+planning and execution, including mentorship external to the core team.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Validation
+
+</td>
+
+<td style="text-align:left;">
+
+Verification, whether as a part of the activity or separate, of the
+overall replication/reproducibility of results/experiments and other
+research outputs.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Visualization
+
+</td>
+
+<td style="text-align:left;">
+
+Preparation, creation and/or presentation of the published work,
+specifically visualization/data presentation.
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Writing – original draft
+
+</td>
+
+<td style="text-align:left;">
+
+Preparation, creation and/or presentation of the published work,
+specifically writing the initial draft (including substantive
+translation).
+
+</td>
+
+</tr>
+
+<tr>
+
+<td style="text-align:left;">
+
+Writing – review & editing
+
+</td>
+
+<td style="text-align:left;">
+
+Preparation, creation and/or presentation of the published work by those
+from the original research group, specifically critical review,
+commentary or revision – including pre- or post-publication stages.
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
 
 ## To do
 
