@@ -18,7 +18,7 @@ credit assignment in a project. This is inspired by Nick Steinmetz (see
 twitter
 <https://twitter.com/SteinmetzNeuro/status/1147241138291527681>).
 
-> Authors contributions sections are new and still don’t appear in many
+> Authors contributions sections are new and still don’t appear in major
 > journals, but can be improved. Rather than text listing each author’s
 > contributions, the same data can be presented as a table with rows
 > corresponding to contributions and columns for each author.
@@ -30,9 +30,7 @@ twitter
 > 
 > 2.  This format can be readily augmented with additional information,
 >     such as distinguishing between ‘major’ and ‘minor’ contributions
->     of each type. Here, it makes clear that Warren had a much bigger
->     role in data analysis than Tirin and me, which is a more accurate
->     attribution.
+>     of each type.
 > 
 > 3.  This format can be read as easily in either direction, answering
 >     both “Who did X?” and “What did person Y do?” equally.
@@ -75,11 +73,11 @@ demo
 #> # A tibble: 5 x 4
 #>   Class              WWP   NAS   TM   
 #>   <chr>              <chr> <chr> <chr>
-#> 1 Designed research  <NA>  Many  Many 
-#> 2 Performed research <NA>  Many  <NA> 
-#> 3 Developed tool     Many  Some  <NA> 
-#> 4 Analyzed data      Many  Some  Some 
-#> 5 Wrote the paper    Many  Some  Many
+#> 1 Designed research  <NA>  Major Major
+#> 2 Performed research <NA>  Major <NA> 
+#> 3 Developed tool     Major Minor <NA> 
+#> 4 Analyzed data      Major Minor Minor
+#> 5 Wrote the paper    Major Minor Major
 ```
 
 ``` r
@@ -89,8 +87,8 @@ generate(demo)
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 The **white** box represents **no contribution**, the **grey** box
-represents **some contribution**, and the **black** box represents
-**many contribution**.
+represents **minor contribution**, and the **black** box represents
+**major contribution**.
 
 The table is nice, easy to read. The result is a `ggplot` object, so you
 can modify in your way\!

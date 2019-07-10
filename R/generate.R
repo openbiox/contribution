@@ -3,7 +3,7 @@
 #' @inheritParams ggplot2::labs
 #' @param data a `data.frame`. e.g. `data("demo")`.
 #' @param color_map color map, either a length-3 vector for 3 contribution level:
-#' None, Some and Many; or a `Scale` object like `scale_fill_brewer(palette ="Oranges")`.
+#' None, Minor and Major; or a `Scale` object like `scale_fill_brewer(palette ="Oranges")`.
 #' @param show_legend if `TRUE`, show figure legend.
 #' @param font_size_x font size for x.
 #' @param font_size_y font size for y.
@@ -42,7 +42,7 @@ generate = function(data,
                                           .data$contribution),
                     contribution = factor(
                       .data$contribution,
-                      levels = c("None", "Some", "Many")
+                      levels = c("None", "Minor", "Major")
                     ))
   }
 

@@ -23,13 +23,13 @@ knitr::opts_chunk$set(
 The goal of **contribution** is to generate **contribution table** for credit assignment in a project. 
 This is inspired by Nick Steinmetz (see twitter <https://twitter.com/SteinmetzNeuro/status/1147241138291527681>). 
 
-> Authors contributions sections are new and still don’t appear in many journals, but can be improved. Rather than text listing each author’s contributions, the same data can be presented as a table with rows corresponding to contributions and columns for each author.
+> Authors contributions sections are new and still don’t appear in major journals, but can be improved. Rather than text listing each author’s contributions, the same data can be presented as a table with rows corresponding to contributions and columns for each author.
 >
 > Advantages include: 
 >
 > 1. Graphics are faster and easier to comprehend. They are also easier to locate in the document.
 >
-> 2. This format can be readily augmented with additional information, such as distinguishing between ‘major’ and ‘minor’ contributions of each type. Here, it makes clear that Warren had a much bigger role in data analysis than Tirin and me, which is a more accurate attribution.
+> 2. This format can be readily augmented with additional information, such as distinguishing between ‘major’ and ‘minor’ contributions of each type.
 >
 > 3. This format can be read as easily in either direction, answering both "Who did X?" and "What did person Y do?" equally. 
 >
@@ -67,18 +67,18 @@ data("demo")
 demo
 ```
 
-```{r}
+```{r, fig.height=3}
 generate(demo)
 ```
 
-The **white** box represents **no contribution**, the **grey** box represents **some contribution**, and the **black** box
-represents **many contribution**.
+The **white** box represents **no contribution**, the **grey** box represents **minor contribution**, and the **black** box
+represents **major contribution**.
 
 The table is nice, easy to read. The result is a `ggplot` object, so you can modify in your way!
 
 You can also use other colors and `scale_fill_*` function from **ggplot2** to map colors
 
-```{r}
+```{r, fig.height=3}
 library(ggplot2)
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Oranges"))
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Set1"))
@@ -86,7 +86,7 @@ generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Set1")
 
 It is not easy to see the meaning of color, so show the legend.
 
-```{r}
+```{r, fig.height=3}
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Set1"), show_legend = TRUE)
 ```
 
