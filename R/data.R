@@ -6,3 +6,12 @@
 #' @examples
 #' data("demo")
 NULL
+
+#' CRediT
+#' @docType data
+#' @name CRediT
+#' @format A data.frame
+#' @source See <https://www.casrai.org/credit.html>
+#' @examples
+#' data("CRediT")
+NULL
