@@ -26,11 +26,19 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
   .pull <- function(repo = NULL, owner = NULL, username = NULL,
                       report_lines = FALSE,
                       type = "all") {
-    d <- gh::gh(
-      "GET /repos/:owner/:repo/stats/contributors",
-      owner = owner,
-      repo = repo
+    d <- tryCatch(
+      expr = {
+        gh::gh(
+          "GET /repos/:owner/:repo/stats/contributors",
+          owner = owner,
+          repo = repo
+        )
+      }, error = function(e) {
+        message("The code didn't run successfuly due to the following reason, \ntypically run it again will pass if your network is fine.")
+        message(e)
+      }
     )
+
     cc <- sapply(d, function(x, u = NULL, report_lines = FALSE, type = "all") {
       if (x$author$login == u) {
         if (report_lines) {

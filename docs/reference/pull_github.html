@@ -173,8 +173,10 @@ You can also pass them one by one to the following parameters.</p></td>
     <pre class="examples"><div class='input'><span class='fu'>pull_github</span>(
   <span class='kw'>repo</span> <span class='kw'>=</span> <span class='st'>"UCSCXenaTools"</span>, <span class='kw'>owner</span> <span class='kw'>=</span> <span class='st'>"ShixiangWang"</span>,
   <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"ShixiangWang"</span>, <span class='kw'>role</span> <span class='kw'>=</span> <span class='st'>"developer"</span>
-)</div><div class='output co'>#&gt; <span class='error'>Error in gh::gh("GET /repos/:owner/:repo/stats/contributors", owner = owner,     repo = repo): GitHub API error (403): 403 Forbidden</span>
-#&gt; <span class='error'>  API rate limit exceeded for 112.64.60.236. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span></div></pre>
+)</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 1 x 2</span><span>
+#&gt;   role      `ShixiangWang/UCSCXenaTools`
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>                            </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> developer                          145</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

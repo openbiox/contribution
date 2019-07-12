@@ -72,15 +72,15 @@ If we want to get number of code line, we can set the `type` option.
 
 ```{r}
 # Total number
-contr_tb1 = pull_github(data = my_contr, type = 'all')
+contr_tb1 = pull_github(data = my_contr, report_lines = T,  type = 'all')
 contr_tb1
 
 # Number of additions
-contr_tb2 = pull_github(data = my_contr, type = 'add')
+contr_tb2 = pull_github(data = my_contr, report_lines = T, type = 'add')
 contr_tb2
 
 # Number of deletions
-contr_tb3 = pull_github(data = my_contr, type = 'del')
+contr_tb3 = pull_github(data = my_contr, report_lines = T, type = 'del')
 contr_tb3
 ```
 
