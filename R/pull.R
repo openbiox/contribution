@@ -36,6 +36,7 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
       }, error = function(e) {
         message("The code didn't run successfuly due to the following reason, \ntypically run it again will pass if your network is fine.")
         message(e)
+        invisible(404)
       }
     )
 
