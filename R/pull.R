@@ -36,9 +36,13 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
       }, error = function(e) {
         message("The code didn't run successfuly due to the following reason, \ntypically run it again will pass if your network is fine.")
         message(e)
-        invisible(404)
+        invisible("404")
       }
     )
+    
+    if (d == "404") {
+        return(NA)
+    }
 
     cc <- sapply(d, function(x, u = NULL, report_lines = FALSE, type = "all") {
       if (x$author$login == u) {
