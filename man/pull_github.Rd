@@ -32,6 +32,8 @@ a `data.frame``
 Pull contributions from GitHub
 }
 \examples{
-pull_github(repo="UCSCXenaTools", owner="ShixiangWang",
-            username="ShixiangWang", role="developer")
+pull_github(
+  repo = "UCSCXenaTools", owner = "ShixiangWang",
+  username = "ShixiangWang", role = "developer"
+)
 }

@@ -28,97 +28,110 @@
 #' @examples
 #' library(contribution)
 #' library(ggplot2)
-#'
+#' 
 #' # Paper contributions
 #' generate(demo)
-#' generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Oranges"))
-#'
+#' generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette = "Oranges"))
+#' 
 #' # Github project contributions
-#' my_contr = dplyr::tibble(
-#'            repo = c("UCSCXenaTools", "maftools"),
-#'            owner = c("ShixiangWang", "PoisonAlien"),
-#'            username = "ShixiangWang",
-#'            role = c("Developer", "Contributor"))
-#'
+#' my_contr <- dplyr::tibble(
+#'   repo = c("UCSCXenaTools", "maftools"),
+#'   owner = c("ShixiangWang", "PoisonAlien"),
+#'   username = "ShixiangWang",
+#'   role = c("Developer", "Contributor")
+#' )
+#' 
 #' my_contr
-#' contr_tb = pull_github(data = my_contr)
-#'
+#' contr_tb <- pull_github(data = my_contr)
+#' 
 #' contr_tb
-#'
+#' 
 #' generate(contr_tb, show_legend = TRUE, hjust_x = 0)
-#' generate(contr_tb, show_legend = TRUE, hjust_x = 0,
-#'          palette_name = "psychedelic")
-
-generate = function(data,
-                    color_map=c("white", "grey", "black"),
-                    palette_name="github",
-                    show_legend=FALSE,
-                    title=NULL, xlab=NULL, ylab=NULL,
-                    caption=NULL, tag=NULL,
-                    font_size_x=16, font_size_y=16,
-                    text_angle_x=30, text_angle_y=0,
-                    hjust_x = 0.2, hjust_y = 1,
-                    vjust_x = 1, vjust_y = 0.5,
-                    coord_ratio=1) {
-
+#' generate(contr_tb,
+#'   show_legend = TRUE, hjust_x = 0,
+#'   palette_name = "psychedelic"
+#' )
+generate <- function(data,
+                     color_map = c("white", "grey", "black"),
+                     palette_name = "github",
+                     show_legend = FALSE,
+                     title = NULL, xlab = NULL, ylab = NULL,
+                     caption = NULL, tag = NULL,
+                     font_size_x = 16, font_size_y = 16,
+                     text_angle_x = 30, text_angle_y = 0,
+                     hjust_x = 0.2, hjust_y = 1,
+                     vjust_x = 1, vjust_y = 0.5,
+                     coord_ratio = 1) {
   stopifnot(is.data.frame(data))
-  colnames(data)[1] = "role"
+  colnames(data)[1] <- "role"
 
-  data = data %>%
-    tidyr::gather(key="contributor", value="contribution", -.data$role)
+  data <- data %>%
+    tidyr::gather(key = "contributor", value = "contribution", -.data$role)
 
   if (!is.numeric(data$contribution)) {
-    data = data %>%
-      dplyr::mutate(contribution = ifelse(is.na(.data$contribution),
-                                          "None",
-                                          .data$contribution),
-                    contribution = factor(
-                      .data$contribution,
-                      levels = c("None", "Minor", "Major")
-                    ))
+    data <- data %>%
+      dplyr::mutate(
+        contribution = ifelse(is.na(.data$contribution),
+          "None",
+          .data$contribution
+        ),
+        contribution = factor(
+          .data$contribution,
+          levels = c("None", "Minor", "Major")
+        )
+      )
   }
 
-  theme_sx = theme(
+  theme_sx <- theme(
     panel.grid = element_blank(),
-    panel.background = element_rect(fill = "transparent",colour = NA),
+    panel.background = element_rect(fill = "transparent", colour = NA),
     panel.border = element_blank(),
     axis.ticks = element_blank(),
-    axis.text = element_text(color="black"),
-    axis.text.x = element_text(size = font_size_x, angle = text_angle_x,
-                               hjust = hjust_x, vjust = vjust_x),
-    axis.text.y = element_text(size = font_size_y, angle = text_angle_y,
-                               hjust = hjust_y, vjust = vjust_y),
+    axis.text = element_text(color = "black"),
+    axis.text.x = element_text(
+      size = font_size_x, angle = text_angle_x,
+      hjust = hjust_x, vjust = vjust_x
+    ),
+    axis.text.y = element_text(
+      size = font_size_y, angle = text_angle_y,
+      hjust = hjust_y, vjust = vjust_y
+    ),
     plot.margin = margin()
   )
 
-  p = ggplot(data = data,
-         mapping = aes(x=.data$contributor,
-                       y=.data$role)) +
-    geom_tile(aes(fill=.data$contribution),
-                  color="black",
-                  size=1) +
+  p <- ggplot(
+    data = data,
+    mapping = aes(
+      x = .data$contributor,
+      y = .data$role
+    )
+  ) +
+    geom_tile(aes(fill = .data$contribution),
+      color = "black",
+      size = 1
+    ) +
     scale_x_discrete(position = "top") +
     theme_sx +
-    coord_fixed(ratio=coord_ratio)
+    coord_fixed(ratio = coord_ratio)
 
   if (inherits(color_map, "Scale")) {
-    p = p + color_map
+    p <- p + color_map
   } else {
     if (is.numeric(data$contribution)) {
-      p = p + scale_fill_gradientn(colors = contribution::palette[[palette_name]])
+      p <- p + scale_fill_gradientn(colors = contribution::palette[[palette_name]])
     } else {
-      p = p + scale_fill_manual(values = color_map)
+      p <- p + scale_fill_manual(values = color_map)
     }
   }
 
   if (show_legend) {
-    p = p + labs(fill="contribution")
+    p <- p + labs(fill = "contribution")
   } else {
-    p = p + theme(legend.position = "none")
+    p <- p + theme(legend.position = "none")
   }
 
-  p = p + xlab(xlab) + ylab(ylab) +
-    labs(title=title, caption=caption, tag=tag)
+  p <- p + xlab(xlab) + ylab(ylab) +
+    labs(title = title, caption = caption, tag = tag)
 
   p
 }

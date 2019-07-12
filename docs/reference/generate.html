@@ -81,10 +81,27 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/github-stats.html">Show GitHub Contributions</a>
+    </li>
+  </ul>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/ShixiangWang/contribution">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -98,7 +115,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Generate contribution table</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/ShixiangWang/contribution/blob/master/R/generate.R'><code>R/generate.R</code></a></small>
     <div class="hidden name"><code>generate.Rd</code></div>
     </div>
 
@@ -206,27 +223,26 @@ top-left of the plot by default.</p></td>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
 
 <span class='co'># Paper contributions</span>
-<span class='fu'>generate</span>(<span class='no'>demo</span>)</div><div class='img'><img src='generate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span>(<span class='no'>demo</span>, <span class='kw'>text_angle_x</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>color_map</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span>(<span class='kw'>palette</span> <span class='kw'>=</span><span class='st'>"Oranges"</span>))</div><div class='img'><img src='generate-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>generate</span>(<span class='no'>demo</span>)</div><div class='img'><img src='generate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span>(<span class='no'>demo</span>, <span class='kw'>text_angle_x</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>color_map</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"Oranges"</span>))</div><div class='img'><img src='generate-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Github project contributions</span>
-<span class='no'>my_contr</span> <span class='kw'>=</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(
-           <span class='kw'>repo</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"UCSCXenaTools"</span>, <span class='st'>"maftools"</span>),
-           <span class='kw'>owner</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ShixiangWang"</span>, <span class='st'>"PoisonAlien"</span>),
-           <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"ShixiangWang"</span>,
-           <span class='kw'>role</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Developer"</span>, <span class='st'>"Contributor"</span>))
+<span class='no'>my_contr</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/dplyr/topics/reexports'>tibble</a></span>(
+  <span class='kw'>repo</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"UCSCXenaTools"</span>, <span class='st'>"maftools"</span>),
+  <span class='kw'>owner</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"ShixiangWang"</span>, <span class='st'>"PoisonAlien"</span>),
+  <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"ShixiangWang"</span>,
+  <span class='kw'>role</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Developer"</span>, <span class='st'>"Contributor"</span>)
+)
 
-<span class='no'>my_contr</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 4</span><span>
+<span class='no'>my_contr</span></div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 2 x 4</span><span>
 #&gt;   repo          owner        username     role       
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      
-#&gt; </span><span style='color: #555555;'>1</span><span> UCSCXenaTools ShixiangWang ShixiangWang Developer  
-#&gt; </span><span style='color: #555555;'>2</span><span> maftools      PoisonAlien  ShixiangWang Contributor</div><div class='input'><span class='no'>contr_tb</span> <span class='kw'>=</span> <span class='fu'><a href='pull_github.html'>pull_github</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>my_contr</span>)
-
-<span class='no'>contr_tb</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 3</span><span>
-#&gt;   role        `PoisonAlien/maftools` `ShixiangWang/UCSCXenaTools`
-#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>                        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> Contributor                      4                            0
-#&gt; </span><span style='color: #555555;'>2</span><span> Developer                        0                          145</div><div class='input'>
-<span class='fu'>generate</span>(<span class='no'>contr_tb</span>, <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='img'><img src='generate-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span>(<span class='no'>contr_tb</span>, <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-         <span class='kw'>palette_name</span> <span class='kw'>=</span> <span class='st'>"psychedelic"</span>)</div><div class='img'><img src='generate-4.png' alt='' width='700' height='433' /></div></span></pre>
+#&gt;   </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #949494;font-style: italic;'>&lt;chr&gt;</span><span>      
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> UCSCXenaTools ShixiangWang ShixiangWang Developer  
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> maftools      PoisonAlien  ShixiangWang Contributor</div><div class='input'><span class='no'>contr_tb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='pull_github.html'>pull_github</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>my_contr</span>)</div><div class='output co'>#&gt; <span class='error'>Error in gh::gh("GET /repos/:owner/:repo/stats/contributors", owner = owner,     repo = repo): GitHub API error (403): 403 Forbidden</span>
+#&gt; <span class='error'>  API rate limit exceeded for 112.64.60.236. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)</span></div><div class='input'>
+<span class='no'>contr_tb</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): 找不到对象'contr_tb'</span></div><div class='input'>
+<span class='fu'>generate</span>(<span class='no'>contr_tb</span>, <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(data): 找不到对象'contr_tb'</span></div><div class='input'><span class='fu'>generate</span>(<span class='no'>contr_tb</span>,
+  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>palette_name</span> <span class='kw'>=</span> <span class='st'>"psychedelic"</span>
+)</div><div class='output co'>#&gt; <span class='error'>Error in is.data.frame(data): 找不到对象'contr_tb'</span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

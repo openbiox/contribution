@@ -1,0 +1,96 @@
+---
+title: "Show GitHub Contributions"
+author: "Shixiang Wang \\
+        ShanghaiTech. University"
+date: "`r Sys.Date()`"
+
+output:
+  prettydoc::html_pretty:
+    toc: true
+    theme: cayman
+    highlight: github
+  pdf_document:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Show GitHub Contributions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\usepackage[utf8]{inputenc}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+**contribution** package supports the following GitHub stats:
+
+* commit number contributed to a repo
+* number of code line contributed a repo
+  * all
+  * addition
+  * deletion
+  
+
+Firstly define our targets.  
+
+```{r}
+library(contribution)
+
+my_contr = dplyr::tibble(
+           repo = c("UCSCXenaTools", "XenaShiny", "metawho", 
+                    "maftools", "DoAbsolute", "contribution"),
+           owner = c("ShixiangWang", "Openbiox", "ShixiangWang",
+                     "PoisonAlien", "ShixiangWang", "ShixiangWang"),
+           username = "ShixiangWang",
+           role = c("Developer", "Project leader", "Developer",
+                    "Contributor", "Developer", "Developer"))
+my_contr
+```
+
+
+## Commit number
+
+At default, `pull_github()` function will pull commit number from GitHub API.
+
+```{r}
+contr_tb = pull_github(data = my_contr)
+contr_tb
+```
+
+
+```{r}
+generate(contr_tb, show_legend = TRUE, hjust_x = 0,
+         palette_name = "indigo", text_angle_x = 60)
+```
+
+## Number of code line
+
+If we want to get number of code line, we can set the `type` option.
+
+```{r}
+# Total number
+contr_tb1 = pull_github(data = my_contr, type = 'all')
+contr_tb1
+
+# Number of additions
+contr_tb2 = pull_github(data = my_contr, type = 'add')
+contr_tb2
+
+# Number of deletions
+contr_tb3 = pull_github(data = my_contr, type = 'del')
+contr_tb3
+```
+
+
+```{r}
+generate(contr_tb1, show_legend = TRUE, hjust_x = 0,
+         palette_name = "pink", text_angle_x = 60)
+generate(contr_tb2, show_legend = TRUE, hjust_x = 0,
+         palette_name = "teal", text_angle_x = 60)
+generate(contr_tb3, show_legend = TRUE, hjust_x = 0,
+         palette_name = "summer", text_angle_x = 60)
+```
+

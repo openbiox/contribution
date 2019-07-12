@@ -15,42 +15,46 @@
 #' @export
 #'
 #' @examples
-#' pull_github(repo="UCSCXenaTools", owner="ShixiangWang",
-#'             username="ShixiangWang", role="developer")
-pull_github = function(data=NULL, repo=NULL, owner=NULL, username=NULL,
-                       role=NULL, report_lines=FALSE, type=c("all", "add", "del")) {
+#' pull_github(
+#'   repo = "UCSCXenaTools", owner = "ShixiangWang",
+#'   username = "ShixiangWang", role = "developer"
+#' )
+pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
+                        role = NULL, report_lines = FALSE, type = c("all", "add", "del")) {
+  type <- match.arg(type)
 
-  type = match.arg(type)
-
-  .pull = function(repo=NULL, owner=NULL, username=NULL,
-                   report_lines=FALSE,
-                   type='all') {
-    d = gh::gh(
+  .pull <- function(repo = NULL, owner = NULL, username = NULL,
+                      report_lines = FALSE,
+                      type = "all") {
+    d <- gh::gh(
       "GET /repos/:owner/:repo/stats/contributors",
       owner = owner,
       repo = repo
     )
-    cc = sapply(d, function(x, u=NULL, report_lines=FALSE, type='all') {
-      if (x$author$login==u) {
+    cc <- sapply(d, function(x, u = NULL, report_lines = FALSE, type = "all") {
+      if (x$author$login == u) {
         if (report_lines) {
-          y = dplyr::bind_rows(x$weeks) %>%
-            dplyr::summarise(add=sum(.data$a), del=sum(.data$d),
-                             all=.data$add+.data$del)
+          y <- dplyr::bind_rows(x$weeks) %>%
+            dplyr::summarise(
+              add = sum(.data$a), del = sum(.data$d),
+              all = .data$add + .data$del
+            )
           if (type == "all") {
             y$all
           } else if (type == "add") {
             y$add
-          } else if (type == "del")
+          } else if (type == "del") {
             y$del
+          }
         } else {
           x$total
         }
       } else {
         NA
       }
-    }, u=username, report_lines=report_lines, type=type)
-    cc = as.integer(na.omit(cc))
-    if (length(cc)!=0) {
+    }, u = username, report_lines = report_lines, type = type)
+    cc <- as.integer(na.omit(cc))
+    if (length(cc) != 0) {
       cc
     } else {
       0L
@@ -58,33 +62,42 @@ pull_github = function(data=NULL, repo=NULL, owner=NULL, username=NULL,
   }
 
   if (is.null(data)) {
-    stopifnot(is.character(repo), is.character(owner),
-              is.character(username), is.character(role))
-    data = dplyr::tibble(
+    stopifnot(
+      is.character(repo), is.character(owner),
+      is.character(username), is.character(role)
+    )
+    data <- dplyr::tibble(
       repo = repo,
       owner = owner,
       username = username,
       role = role
     )
   } else {
-    stopifnot(is.data.frame(data),
-              all(c("repo", "owner", "username", "role") %in% colnames(data)))
-    data = dplyr::as_tibble(data)
+    stopifnot(
+      is.data.frame(data),
+      all(c("repo", "owner", "username", "role") %in% colnames(data))
+    )
+    data <- dplyr::as_tibble(data)
   }
 
-  data = data %>%
+  data <- data %>%
     dplyr::rowwise() %>%
-    dplyr::mutate(contribution=.pull(.data$repo,
-                                     .data$owner,
-                                     .data$username,
-                                     report_lines = report_lines,
-                                     type = type),
-                  project=paste(.data$owner, .data$repo, sep="/"))
+    dplyr::mutate(
+      contribution = .pull(.data$repo,
+        .data$owner,
+        .data$username,
+        report_lines = report_lines,
+        type = type
+      ),
+      project = paste(.data$owner, .data$repo, sep = "/")
+    )
 
-  data = data %>%
-    tidyr::spread(key="project",
-                   value="contribution",
-                   fill=0L) %>%
-    dplyr::select(-c("repo", "username", "owner"))
+  data <- data %>%
+    dplyr::select(-c("repo", "username", "owner")) %>%
+    tidyr::spread(
+      key = "project",
+      value = "contribution",
+      fill = 0L
+    )
   data
 }

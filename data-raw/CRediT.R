@@ -1,5 +1,5 @@
 ## code to prepare `CRediT` dataset goes here
-#devtools::install_github("alistaire47/read.so")
+# devtools::install_github("alistaire47/read.so")
 library(read.so)
 library(dplyr)
 
@@ -22,8 +22,8 @@ library(dplyr)
   | 14   | **Writing – review & editing** | Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision – including pre- or post-publication stages. |
 "
 
-CRediT = read_md()
-CRediT = CRediT %>%
+CRediT <- read_md()
+CRediT <- CRediT %>%
   dplyr::select(-`#`) %>%
   dplyr::mutate(Role = gsub("\\*", "", Role))
 

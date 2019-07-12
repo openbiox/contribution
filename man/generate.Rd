@@ -64,21 +64,24 @@ library(ggplot2)
 
 # Paper contributions
 generate(demo)
-generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Oranges"))
+generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette = "Oranges"))
 
 # Github project contributions
-my_contr = dplyr::tibble(
-           repo = c("UCSCXenaTools", "maftools"),
-           owner = c("ShixiangWang", "PoisonAlien"),
-           username = "ShixiangWang",
-           role = c("Developer", "Contributor"))
+my_contr <- dplyr::tibble(
+  repo = c("UCSCXenaTools", "maftools"),
+  owner = c("ShixiangWang", "PoisonAlien"),
+  username = "ShixiangWang",
+  role = c("Developer", "Contributor")
+)
 
 my_contr
-contr_tb = pull_github(data = my_contr)
+contr_tb <- pull_github(data = my_contr)
 
 contr_tb
 
 generate(contr_tb, show_legend = TRUE, hjust_x = 0)
-generate(contr_tb, show_legend = TRUE, hjust_x = 0,
-         palette_name = "psychedelic")
+generate(contr_tb,
+  show_legend = TRUE, hjust_x = 0,
+  palette_name = "psychedelic"
+)
 }
