@@ -9,3 +9,6 @@
 ^docs$
 ^Meta$
 ^CRAN-RELEASE$
+^contribution\.Rcheck$
+^contribution.*\.tar\.gz$
+^contribution.*\.tgz$
