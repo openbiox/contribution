@@ -5,3 +5,6 @@
 ^README\.Rmd$
 ^appveyor\.yml$
 ^\.travis\.yml$
+^doc$
+^docs$
+^Meta$

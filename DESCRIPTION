@@ -2,20 +2,27 @@ Package: contribution
 Type: Package
 Title: A Tiny Contribution Table Generator Based on ggplot2
 Version: 0.1.0
-Author: Shixiang Wang
+Authors@R: c(person("Shixiang", "Wang", email = "w_shixiang@163.com", role = c("aut", "cre"), 
+            comment = c(ORCID = "0000-0001-9855-7357")))
 Maintainer: Shixiang Wang <w_shixiang@163.com>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: Contains functions to easily generate contribution table for credit assignment based on ggplot2.
+    This can improve the author contribution information in academic jornals and personal CV.  
 License: MIT + file LICENSE
+Depends: 
+    R (>= 3.5)
 Imports: 
     dplyr,
     ggplot2,
     tidyr,
     rlang,
-    magrittr
+    magrittr,
+    gh
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Depends: 
-    R (>= 3.4)
+Suggests: 
+    knitr,
+    rmarkdown,
+    prettydoc
+VignetteBuilder: knitr

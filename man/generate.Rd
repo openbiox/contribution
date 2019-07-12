@@ -5,15 +5,20 @@
 \title{Generate contribution table}
 \usage{
 generate(data, color_map = c("white", "grey", "black"),
-  show_legend = FALSE, title = NULL, xlab = NULL, ylab = NULL,
-  caption = NULL, tag = NULL, font_size_x = 16, font_size_y = 16,
-  text_angle_x = 30, coord_ratio = 1)
+  palette_name = "github", show_legend = FALSE, title = NULL,
+  xlab = NULL, ylab = NULL, caption = NULL, tag = NULL,
+  font_size_x = 16, font_size_y = 16, text_angle_x = 30,
+  text_angle_y = 0, hjust_x = 0.2, hjust_y = 1, vjust_x = 1,
+  vjust_y = 0.5, coord_ratio = 1)
 }
 \arguments{
 \item{data}{a \code{data.frame}. e.g. \code{data("demo")}.}
 
-\item{color_map}{color map, either a length-3 vector for 3 contribution level:
-None, Some and Many; or a \code{Scale} object like \code{scale_fill_brewer(palette ="Oranges")}.}
+\item{color_map}{color map for discrete order, either a length-3 vector for 3 contribution level:
+None, Minor and Major; or a \code{Scale} object like \code{scale_fill_brewer(palette ="Oranges")}.}
+
+\item{palette_name}{palette_name for plotting continuous contributions.
+See \link{show_palette} for available options.}
 
 \item{show_legend}{if \code{TRUE}, show figure legend.}
 
@@ -35,6 +40,16 @@ top-left of the plot by default.}
 
 \item{text_angle_x}{text angle for x.}
 
+\item{text_angle_y}{text angle for y.}
+
+\item{hjust_x}{hjust for x axis text.}
+
+\item{hjust_y}{hjust for y axis text.}
+
+\item{vjust_x}{vjust for x axis text.}
+
+\item{vjust_y}{vjust for y axis text.}
+
 \item{coord_ratio}{coordinate ratio.}
 }
 \value{
@@ -46,6 +61,24 @@ Generate contribution table
 \examples{
 library(contribution)
 library(ggplot2)
+
+# Paper contributions
 generate(demo)
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Oranges"))
+
+# Github project contributions
+my_contr = dplyr::tibble(
+           repo = c("UCSCXenaTools", "maftools"),
+           owner = c("ShixiangWang", "PoisonAlien"),
+           username = "ShixiangWang",
+           role = c("Developer", "Contributor"))
+
+my_contr
+contr_tb = pull_github(data = my_contr)
+
+contr_tb
+
+generate(contr_tb, show_legend = TRUE, hjust_x = 0)
+generate(contr_tb, show_legend = TRUE, hjust_x = 0,
+         palette_name = "psychedelic")
 }

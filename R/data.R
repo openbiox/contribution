@@ -15,3 +15,12 @@ NULL
 #' @examples
 #' data("CRediT")
 NULL
+
+#' palette
+#' @docType data
+#' @name palette
+#' @format A data.frame
+#' @source See <https://github.com/williambelle/github-contribution-color-graph>
+#' @examples
+#' data("palette")
+NULL
