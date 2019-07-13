@@ -6,7 +6,7 @@
 \usage{
 pull_github(data = NULL, repo = NULL, owner = NULL,
   username = NULL, role = NULL, report_lines = FALSE,
-  type = c("all", "add", "del"))
+  type = c("all", "add", "del"), .token = NULL)
 }
 \arguments{
 \item{data}{a \code{data.frame} contains columns 'repo', 'owner', 'username' and 'role'.
@@ -24,6 +24,8 @@ You can also pass them one by one to the following parameters.}
 
 \item{type}{'all' for the sum of number of additions and deletions,
 'add' for the number of additions and 'del' for the number of deletions.}
+
+\item{.token}{Authentication token. See \code{\link[=pull_github_limit]{pull_github_limit()}}.}
 }
 \value{
 a `data.frame``

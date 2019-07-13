@@ -66,6 +66,7 @@ library(ggplot2)
 generate(demo)
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette = "Oranges"))
 
+\donttest{
 # Github project contributions
 my_contr <- dplyr::tibble(
   repo = c("UCSCXenaTools", "maftools"),
@@ -84,4 +85,5 @@ generate(contr_tb,
   show_legend = TRUE, hjust_x = 0,
   palette_name = "psychedelic"
 )
+}
 }

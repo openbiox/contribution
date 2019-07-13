@@ -28,11 +28,12 @@
 #' @examples
 #' library(contribution)
 #' library(ggplot2)
-#' 
+#'
 #' # Paper contributions
 #' generate(demo)
 #' generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette = "Oranges"))
-#' 
+#'
+#' \donttest{
 #' # Github project contributions
 #' my_contr <- dplyr::tibble(
 #'   repo = c("UCSCXenaTools", "maftools"),
@@ -40,17 +41,18 @@
 #'   username = "ShixiangWang",
 #'   role = c("Developer", "Contributor")
 #' )
-#' 
+#'
 #' my_contr
 #' contr_tb <- pull_github(data = my_contr)
-#' 
+#'
 #' contr_tb
-#' 
+#'
 #' generate(contr_tb, show_legend = TRUE, hjust_x = 0)
 #' generate(contr_tb,
 #'   show_legend = TRUE, hjust_x = 0,
 #'   palette_name = "psychedelic"
 #' )
+#' }
 generate <- function(data,
                      color_map = c("white", "grey", "black"),
                      palette_name = "github",

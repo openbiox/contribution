@@ -3,6 +3,7 @@
 export("%>%")
 export(generate)
 export(pull_github)
+export(pull_github_limit)
 export(show_palette)
 importFrom(ggplot2,aes)
 importFrom(ggplot2,coord_fixed)

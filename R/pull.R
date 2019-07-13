@@ -9,6 +9,7 @@
 #' @param report_lines if `TRUE`, report contributed lines.
 #' @param type 'all' for the sum of number of additions and deletions,
 #' 'add' for the number of additions and 'del' for the number of deletions.
+#' @param .token Authentication token. See [pull_github_limit()].
 #' @importFrom stats na.omit
 #'
 #' @return a `data.frame``
@@ -20,27 +21,34 @@
 #'   username = "ShixiangWang", role = "developer"
 #' )
 pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
-                        role = NULL, report_lines = FALSE, type = c("all", "add", "del")) {
+                        role = NULL, report_lines = FALSE,
+                        type = c("all", "add", "del"), .token=NULL) {
   type <- match.arg(type)
 
   .pull <- function(repo = NULL, owner = NULL, username = NULL,
                       report_lines = FALSE,
-                      type = "all") {
+                      type = "all", .token=NULL) {
     d <- tryCatch(
       expr = {
         gh::gh(
           "GET /repos/:owner/:repo/stats/contributors",
           owner = owner,
-          repo = repo
+          repo = repo,
+          .token = .token
         )
       }, error = function(e) {
-        message("The code didn't run successfuly due to the following reason, \ntypically run it again will pass if your network is fine.")
+        message("The code didn't run successfuly due to the following reason:")
         message(e)
+        message(paste0("Typically have two reasons: ",
+                       "\n\t1): You network is bad ",
+                       "\n\t2): You cannot query GitHub API because of rate limit,",
+                       " use function pull_github_limit() to check it and ",
+                       "more detail please see https://developer.github.com/v3/rate_limit/"))
         invisible("404")
       }
     )
-    
-    if (d == "404") {
+
+    if (is.character(d)) {
         return(NA)
     }
 
@@ -100,7 +108,8 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
         .data$owner,
         .data$username,
         report_lines = report_lines,
-        type = type
+        type = type,
+        .token = .token
       ),
       project = paste(.data$owner, .data$repo, sep = "/")
     )
@@ -113,4 +122,32 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
       fill = 0L
     )
   data
+}
+
+#' Pull GitHub API limit for current user
+#'
+#' For unauthenticated requests, the rate limit allows for up to 60 requests per hour.
+#' For API requests using Basic Authentication or OAuth, you can make up to 5000 requests per hour.
+#' Here we use token to manage this.
+#' Obtain a personal access token (PAT) from here: <https://github.com/settings/tokens>.
+#'
+#'
+#' Typically, you can set `GITHUB_PAT` variable in your `.Renviron` file using the following format:
+#'
+#' GITHUB_PAT=8c70fd8419398999c9ac5bacf3192882193cadf2
+#'
+#' You can also set it in your `.Rprofile` file using the following format:
+#'
+#' Sys.setenv(GITHUB_PAT="8c70fd8419398999c9ac5bacf3192882193cadf2")
+#'
+#' For more on what to do with the PAT, see [gh::gh_whoami].
+#' @param .token Authentication token.
+#'
+#' @return a `list`.
+#' @export
+#'
+#' @examples
+#' pull_github_limit()
+pull_github_limit = function(.token=NULL) {
+    gh::gh("GET /rate_limit", .token = .token)
 }
