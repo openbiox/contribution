@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Tiny Contribution Table Generator Based on ggplot2 • contribution</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="A Tiny Contribution Table Generator Based on ggplot2">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -48,23 +49,11 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-<li>
-      <a href="../articles/github-stats.html">Show GitHub Contributions</a>
-    </li>
-  </ul>
-</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/ShixiangWang/contribution">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -77,13 +66,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>A Tiny Contribution Table Generator Based on ggplot2</h1>
                         <h4 class="author">Shixiang Wang  ShanghaiTech. University</h4>
             
-            <h4 class="date">2019-07-12</h4>
+            <h4 class="date">2019-10-22</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ShixiangWang/contribution/blob/master/vignettes/contribution.Rmd"><code>vignettes/contribution.Rmd</code></a></small>
       <div class="hidden name"><code>contribution.Rmd</code></div>
@@ -92,262 +82,18 @@
 
     
     
-<p>The goal of <strong>contribution</strong> is to generate <strong>contribution table</strong> for credit assignment in a project. This is inspired by Nick Steinmetz (see twitter <a href="https://twitter.com/SteinmetzNeuro/status/1147241138291527681" class="uri">https://twitter.com/SteinmetzNeuro/status/1147241138291527681</a>).</p>
-<blockquote>
-<p>Authors contributions sections are new and still don’t appear in major journals, but can be improved. Rather than text listing each author’s contributions, the same data can be presented as a table with rows corresponding to contributions and columns for each author.</p>
-<p>Advantages include:</p>
-<ol style="list-style-type: decimal">
-<li><p>Graphics are faster and easier to comprehend. They are also easier to locate in the document.</p></li>
-<li><p>This format can be readily augmented with additional information, such as distinguishing between ‘major’ and ‘minor’ contributions of each type.</p></li>
-<li><p>This format can be read as easily in either direction, answering both “Who did X?” and “What did person Y do?” equally.</p></li>
-<li><p>This format lends itself to a nice extension for including your author contribution information on your CV: a similar table where each column is one of your papers.</p></li>
-</ol>
-<p>A difficulty with this is the diversity of terminology used, which would be helped by refinement and more widespread adoption of the CRediT framework (<a href="https://www.casrai.org/credit.html" class="uri">https://www.casrai.org/credit.html</a> ).</p>
-</blockquote>
-<div id="feature" class="section level2">
-<h2 class="hasAnchor">
-<a href="#feature" class="anchor"></a>Feature</h2>
+<p>The vignettes have been moved to my website, so I can maintain them more easily. <a href="https://github.com/openbiox/contribution/issues">GitHub Issue</a> is a place for discussing any problem. Any feedback is also welcome.</p>
 <ul>
-<li>Support table type
-<ul>
-<li>3-level contribution (i.e. ‘None’, ‘Minor’ and ‘Major’)</li>
-<li>numeric contribution</li>
-</ul>
-</li>
-<li>Dataset <code>palette</code> contains 27 color maps</li>
+<li><a href="https://ShixiangWang.github.io/home/en/tools/contribution-table/">A Tiny Contribution Table Generator Based on ggplot2</a></li>
 </ul>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of contribution from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"contribution"</span>)</a></code></pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"ShixiangWang/contribution"</span>)</a></code></pre></div>
-</div>
-<div id="basic-example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#basic-example" class="anchor"></a>Basic example</h2>
-<p>This is a basic example which shows you how to plot a simple contribution table:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(contribution)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(<span class="st">"demo"</span>)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">demo</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; # A tibble: 5 x 4</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;   Class              WWP   NAS   TM   </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;   &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; 1 Designed research  &lt;NA&gt;  Major Major</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; 2 Performed research &lt;NA&gt;  Major &lt;NA&gt; </span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; 3 Developed tool     Major Minor &lt;NA&gt; </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt; 4 Analyzed data      Major Minor Minor</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt; 5 Wrote the paper    Major Minor Major</span></a></code></pre></div>
-<p>The accepted data format is a <code>data.frame</code> whose first column show the <code>role</code> and the other columns show the people or projects. This format is easy to create using R or other tools like Excel.</p>
-<p>For a 3-level contribution table, only <code>Minor</code> and <code>Major</code> are valid, a <code>NA</code> value should put in cell for no contribution.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="../reference/generate.html">generate</a></span>(demo)</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-1-1.png" width="700"></p>
-<p>The <strong>white</strong> box represents <strong>no contribution</strong>, the <strong>grey</strong> box represents <strong>minor contribution</strong>, and the <strong>black</strong> box represents <strong>major contribution</strong>.</p>
-<p>The table is nice, easy to read. The result is a <code>ggplot</code> object, so you can modify in your way!</p>
-<p>You can also use other colors and <code>scale_fill_*</code> function from <strong>ggplot2</strong> to map colors:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw"><a href="../reference/generate.html">generate</a></span>(demo, <span class="dt">text_angle_x =</span> <span class="dv">20</span>, <span class="dt">color_map =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span>(<span class="dt">palette =</span><span class="st">"Oranges"</span>))</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
-<p>When it is not easy to see the meaning of color, you can show the legend.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/generate.html">generate</a></span>(demo, <span class="dt">text_angle_x =</span> <span class="dv">20</span>, <span class="dt">color_map =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html">scale_fill_brewer</a></span>(<span class="dt">palette =</span><span class="st">"Set1"</span>), <span class="dt">show_legend =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
-</div>
-<div id="github-contribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#github-contribution" class="anchor"></a>GitHub contribution</h2>
-<p>To show how to generate numeric contribution table, here we use commit number of GitHub project as an example.</p>
-<p>To get data from GitHub, I created a function <code><a href="../reference/pull_github.html">pull_github()</a></code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="co"># Github project contributions</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">my_contr =<span class="st"> </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">           <span class="dt">repo =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"UCSCXenaTools"</span>, <span class="st">"maftools"</span>),</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">           <span class="dt">owner =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"ShixiangWang"</span>, <span class="st">"PoisonAlien"</span>),</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">           <span class="dt">username =</span> <span class="st">"ShixiangWang"</span>,</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">           <span class="dt">role =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Developer"</span>, <span class="st">"Contributor"</span>))</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">my_contr</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; # A tibble: 2 x 4</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;   repo          owner        username     role       </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;      </span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="co">#&gt; 1 UCSCXenaTools ShixiangWang ShixiangWang Developer  </span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="co">#&gt; 2 maftools      PoisonAlien  ShixiangWang Contributor</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">contr_tb =<span class="st"> </span><span class="kw"><a href="../reference/pull_github.html">pull_github</a></span>(<span class="dt">data =</span> my_contr)</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">contr_tb</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="co">#&gt; # A tibble: 2 x 3</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="co">#&gt;   role        `PoisonAlien/maftools` `ShixiangWang/UCSCXenaTools`</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">#&gt;   &lt;chr&gt;                        &lt;int&gt;                        &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="co">#&gt; 1 Contributor                      4                            0</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co">#&gt; 2 Developer                        0                          145</span></a></code></pre></div>
-<p>Now we have data format the <code><a href="../reference/generate.html">generate()</a></code> function can accept, show the plot!</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/generate.html">generate</a></span>(contr_tb, <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, <span class="dt">hjust_x =</span> <span class="dv">0</span>)</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
-<div id="palette" class="section level3">
-<h3 class="hasAnchor">
-<a href="#palette" class="anchor"></a>Palette</h3>
-<p>To change colors of contribution graph, I generated a dataset <code>palette</code> according to themes provided by project <a href="https://github.com/williambelle/github-contribution-color-graph">github-contribution-color-graph</a>.</p>
-<p>We can show the palette and choose the color we like.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/show_palette.html">show_palette</a></span>()</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
-<p>Just put the name to option <code>palette_name</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/generate.html">generate</a></span>(contr_tb, <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, <span class="dt">hjust_x =</span> <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">         <span class="dt">palette_name =</span> <span class="st">"psychedelic"</span>)</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../reference/generate.html">generate</a></span>(contr_tb, <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, <span class="dt">hjust_x =</span> <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">         <span class="dt">palette_name =</span> <span class="st">"cyan"</span>)</a></code></pre></div>
-<p><img src="contribution_files/figure-html/unnamed-chunk-7-2.png" width="700"></p>
-<p>More custom options please run <code><a href="../reference/generate.html">?generate</a></code> in R console.</p>
-</div>
-</div>
-<div id="credit" class="section level2">
-<h2 class="hasAnchor">
-<a href="#credit" class="anchor"></a>CRediT</h2>
-<p><strong>CRediT</strong> can help assign the role, this data has been stored in this package.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(<span class="st">"CRediT"</span>)</a></code></pre></div>
-<p>Show whole table.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">knitr<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/knitr/topics/kable">kable</a></span>(CRediT, <span class="dt">format =</span> <span class="st">"html"</span>)</a></code></pre></div>
-<table class="table">
-<thead><tr>
-<th style="text-align:left;">
-Role
-</th>
-<th style="text-align:left;">
-Definition
-</th>
-</tr></thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Conceptualization
-</td>
-<td style="text-align:left;">
-Ideas; formulation or evolution of overarching research goals and aims.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Data curation
-</td>
-<td style="text-align:left;">
-Management activities to annotate (produce metadata), scrub data and maintain research data (including software code, where it is necessary for interpreting the data itself) for initial use and later re-use.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Formal analysis
-</td>
-<td style="text-align:left;">
-Application of statistical, mathematical, computational, or other formal techniques to analyse or synthesize study data.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Funding acquisition
-</td>
-<td style="text-align:left;">
-Acquisition of the financial support for the project leading to this publication.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Investigation
-</td>
-<td style="text-align:left;">
-Conducting a research and investigation process, specifically performing the experiments, or data/evidence collection.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Methodology
-</td>
-<td style="text-align:left;">
-Development or design of methodology; creation of models.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Project administration
-</td>
-<td style="text-align:left;">
-Management and coordination responsibility for the research activity planning and execution.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Resources
-</td>
-<td style="text-align:left;">
-Provision of study materials, reagents, materials, patients, laboratory samples, animals, instrumentation, computing resources, or other analysis tools.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Software
-</td>
-<td style="text-align:left;">
-Programming, software development; designing computer programs; implementation of the computer code and supporting algorithms; testing of existing code components.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Supervision
-</td>
-<td style="text-align:left;">
-Oversight and leadership responsibility for the research activity planning and execution, including mentorship external to the core team.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Validation
-</td>
-<td style="text-align:left;">
-Verification, whether as a part of the activity or separate, of the overall replication/reproducibility of results/experiments and other research outputs.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Visualization
-</td>
-<td style="text-align:left;">
-Preparation, creation and/or presentation of the published work, specifically visualization/data presentation.
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Writing – original draft
-</td>
-<td style="text-align:left;">
-Preparation, creation and/or presentation of the published work, specifically writing the initial draft (including substantive translation).
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Writing – review &amp; editing
-</td>
-<td style="text-align:left;">
-Preparation, creation and/or presentation of the published work by those from the original research group, specifically critical review, commentary or revision – including pre- or post-publication stages.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-  </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#feature">Feature</a></li>
-      <li><a href="#installation">Installation</a></li>
-      <li><a href="#basic-example">Basic example</a></li>
-      <li><a href="#github-contribution">GitHub contribution</a></li>
-      <li><a href="#credit">CRediT</a></li>
-      </ul>
-</div>
+
       </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -355,12 +101,14 @@ Preparation, creation and/or presentation of the published work by those from th
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ShixiangWang/contribution?branch=master&svg=true)](https://ci.appveyor.com/project/ShixiangWang/contribution)
-[![Travis build status](https://travis-ci.org/ShixiangWang/contribution.svg?branch=master)](https://travis-ci.org/ShixiangWang/contribution)
+[![Travis build status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://travis-ci.org/openbiox/contribution)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN status](https://www.r-pkg.org/badges/version/contribution)](https://cran.r-project.org/package=contribution)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
@@ -60,7 +60,7 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ShixiangWang/contribution")
+devtools::install_github("openbiox/contribution")
 ```
 
 ## Basic example
@@ -101,7 +101,7 @@ When it is not easy to see the meaning of color, you can show the legend.
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Set1"), show_legend = TRUE)
 ```
 
-More usage please see [online documentation](https://shixiangwang.github.io/contribution/).
+More usage please see [online documentation](https://openbiox.github.io/contribution/).
 
 ## To do
 

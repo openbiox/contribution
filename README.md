@@ -1,14 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# contribution
+# contribution - A Tiny Contribution Table Generator Based on ggplot2
 
 <!-- badges: start -->
 
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/ShixiangWang/contribution?branch=master&svg=true)](https://ci.appveyor.com/project/ShixiangWang/contribution)
 [![Travis build
-status](https://travis-ci.org/ShixiangWang/contribution.svg?branch=master)](https://travis-ci.org/ShixiangWang/contribution)
+status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://travis-ci.org/openbiox/contribution)
 [![Lifecycle:
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
@@ -66,7 +66,7 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ShixiangWang/contribution")
+devtools::install_github("openbiox/contribution")
 ```
 
 ## Basic example
@@ -128,7 +128,7 @@ generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette ="Set1")
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 More usage please see [online
-documentation](https://shixiangwang.github.io/contribution/).
+documentation](https://openbiox.github.io/contribution/).
 
 ## To do
 

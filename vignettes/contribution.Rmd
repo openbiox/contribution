@@ -25,7 +25,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The vignettes have been moved to my website, so I can maintain them more easily. [GitHub Issue](https://github.com/ShixiangWang/contribution/issues) is a place for discussing any problem. 
+The vignettes have been moved to my website, so I can maintain them more easily. [GitHub Issue](https://github.com/openbiox/contribution/issues) is a place for discussing any problem. 
 Any feedback is also welcome.
 
-- [A Tiny Contribution Table Generator Based on ggplot2](https://shixiangwang.github.io/home/en/tools/contribution-table/)
+- [A Tiny Contribution Table Generator Based on ggplot2](https://ShixiangWang.github.io/home/en/tools/contribution-table/)
