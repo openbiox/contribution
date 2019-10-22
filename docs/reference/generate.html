@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contribution</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -90,7 +90,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/ShixiangWang/contribution">
+  <a href="https://github.com/openbiox/contribution">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -109,7 +109,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Generate contribution table</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ShixiangWang/contribution/blob/master/R/generate.R'><code>R/generate.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/openbiox/contribution/blob/master/R/generate.R'><code>R/generate.R</code></a></small>
     <div class="hidden name"><code>generate.Rd</code></div>
     </div>
 
@@ -217,7 +217,7 @@ top-left of the plot by default.</p></td>
 <span class='fu'>generate</span>(<span class='no'>demo</span>)</div><div class='img'><img src='generate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span>(<span class='no'>demo</span>, <span class='kw'>text_angle_x</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>color_map</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"Oranges"</span>))</div><div class='img'><img src='generate-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># \donttest{</span>
 <span class='co'># Github project contributions</span>
-<span class='no'>my_contr</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(
+<span class='no'>my_contr</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/dplyr/man/reexports.html'>tibble</a></span>(
   <span class='kw'>repo</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"UCSCXenaTools"</span>, <span class='st'>"maftools"</span>),
   <span class='kw'>owner</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ShixiangWang"</span>, <span class='st'>"PoisonAlien"</span>),
   <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"ShixiangWang"</span>,
