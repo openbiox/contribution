@@ -13,7 +13,7 @@ status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/contribution)](https://cran.r-project.org/package=contribution)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
 <!-- badges: end -->
 
 The goal of **contribution** is to generate **contribution table** for
@@ -25,33 +25,33 @@ twitter
 > journals, but can be improved. Rather than text listing each author’s
 > contributions, the same data can be presented as a table with rows
 > corresponding to contributions and columns for each author.
-> 
+>
 > Advantages include:
-> 
+>
 > 1.  Graphics are faster and easier to comprehend. They are also easier
 >     to locate in the document.
-> 
+>
 > 2.  This format can be readily augmented with additional information,
 >     such as distinguishing between ‘major’ and ‘minor’ contributions
 >     of each type.
-> 
+>
 > 3.  This format can be read as easily in either direction, answering
 >     both “Who did X?” and “What did person Y do?” equally.
-> 
+>
 > 4.  This format lends itself to a nice extension for including your
 >     author contribution information on your CV: a similar table where
 >     each column is one of your papers.
-> 
+>
 > A difficulty with this is the diversity of terminology used, which
 > would be helped by refinement and more widespread adoption of the
 > CRediT framework (<https://www.casrai.org/credit.html> ).
 
 ## Feature
 
-  - Support table type
-      - 3-level contribution (i.e. ‘None’, ‘Minor’ and ‘Major’)
-      - numeric contribution
-  - Dataset `palette` contains 27 color maps
+-   Support table type
+    -   3-level contribution (i.e. ‘None’, ‘Minor’ and ‘Major’)
+    -   numeric contribution
+-   Dataset `palette` contains 27 color maps
 
 ## Installation
 
@@ -106,7 +106,7 @@ represents **minor contribution**, and the **black** box represents
 **major contribution**.
 
 The table is nice, easy to read. The result is a `ggplot` object, so you
-can modify in your way\!
+can modify in your way!
 
 You can also use other colors and `scale_fill_*` function from
 **ggplot2** to map colors:
@@ -132,8 +132,8 @@ documentation](https://openbiox.github.io/contribution/).
 
 ## To do
 
-  - Support special symbol for indicating equal work in a project/paper
-  - Accept author contributions information in machine-readable formats,
+-   Support special symbol for indicating equal work in a project/paper
+-   Accept author contributions information in machine-readable formats,
     e.g. in RIS and Bibtex citation documents provided on journal
     websites.
-  - A shiny or addin of RStudio, maybe?
+-   A shiny or addin of RStudio, maybe?

@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://travis-ci.org/openbiox/contribution)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 [![CRAN status](https://www.r-pkg.org/badges/version/contribution)](https://cran.r-project.org/package=contribution)
-[![](http://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
 <!-- badges: end -->
 
 The goal of **contribution** is to generate **contribution table** for credit assignment in a project. 

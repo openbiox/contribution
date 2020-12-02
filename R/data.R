@@ -11,7 +11,7 @@ NULL
 #' @docType data
 #' @name CRediT
 #' @format A data.frame
-#' @source See <https://www.casrai.org/credit.html>
+#' @source See <https://casrai.org/credit/>
 #' @examples
 #' data("CRediT")
 NULL
