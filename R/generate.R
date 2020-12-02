@@ -6,6 +6,8 @@
 #' None, Minor and Major; or a `Scale` object like `scale_fill_brewer(palette ="Oranges")`.
 #' @param palette_name palette_name for plotting continuous contributions.
 #' See [show_palette] for available options.
+#' @param sort if `TRUE`, sort the plot to make sure the plot is similar
+#' what input.
 #' @param show_legend if `TRUE`, show figure legend.
 #' @param font_size_x font size for x.
 #' @param font_size_y font size for y.
@@ -32,7 +34,6 @@
 #' # Paper contributions
 #' generate(demo)
 #' generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette = "Oranges"))
-#'
 #' \donttest{
 #' # Github project contributions
 #' my_contr <- dplyr::tibble(
@@ -56,6 +57,7 @@
 generate <- function(data,
                      color_map = c("white", "grey", "black"),
                      palette_name = "github",
+                     sort = FALSE,
                      show_legend = FALSE,
                      title = NULL, xlab = NULL, ylab = NULL,
                      caption = NULL, tag = NULL,
@@ -67,8 +69,18 @@ generate <- function(data,
   stopifnot(is.data.frame(data))
   colnames(data)[1] <- "role"
 
+  if (sort) {
+    role_order <- data$role
+    p_order <- colnames(data)[-1]
+  }
+
   data <- data %>%
     tidyr::gather(key = "contributor", value = "contribution", -.data$role)
+
+  if (sort) {
+    data$role <- factor(data$role, levels = rev(role_order))
+    data$contributor <- factor(data$contributor, levels = p_order)
+  }
 
   if (!is.numeric(data$contribution)) {
     data <- data %>%

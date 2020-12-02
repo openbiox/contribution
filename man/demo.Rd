@@ -4,7 +4,9 @@
 \name{demo}
 \alias{demo}
 \title{A demo for plotting contribution table}
-\format{A data.frame}
+\format{
+A data.frame
+}
 \source{
 See data_raw directory
 }

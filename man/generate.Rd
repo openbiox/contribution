@@ -4,12 +4,27 @@
 \alias{generate}
 \title{Generate contribution table}
 \usage{
-generate(data, color_map = c("white", "grey", "black"),
-  palette_name = "github", show_legend = FALSE, title = NULL,
-  xlab = NULL, ylab = NULL, caption = NULL, tag = NULL,
-  font_size_x = 16, font_size_y = 16, text_angle_x = 30,
-  text_angle_y = 0, hjust_x = 0.2, hjust_y = 1, vjust_x = 1,
-  vjust_y = 0.5, coord_ratio = 1)
+generate(
+  data,
+  color_map = c("white", "grey", "black"),
+  palette_name = "github",
+  sort = FALSE,
+  show_legend = FALSE,
+  title = NULL,
+  xlab = NULL,
+  ylab = NULL,
+  caption = NULL,
+  tag = NULL,
+  font_size_x = 16,
+  font_size_y = 16,
+  text_angle_x = 30,
+  text_angle_y = 0,
+  hjust_x = 0.2,
+  hjust_y = 1,
+  vjust_x = 1,
+  vjust_y = 0.5,
+  coord_ratio = 1
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. e.g. \code{data("demo")}.}
@@ -19,6 +34,9 @@ None, Minor and Major; or a \code{Scale} object like \code{scale_fill_brewer(pal
 
 \item{palette_name}{palette_name for plotting continuous contributions.
 See \link{show_palette} for available options.}
+
+\item{sort}{if \code{TRUE}, sort the plot to make sure the plot is similar
+what input.}
 
 \item{show_legend}{if \code{TRUE}, show figure legend.}
 
@@ -65,7 +83,6 @@ library(ggplot2)
 # Paper contributions
 generate(demo)
 generate(demo, text_angle_x = 20, color_map = scale_fill_brewer(palette = "Oranges"))
-
 \donttest{
 # Github project contributions
 my_contr <- dplyr::tibble(

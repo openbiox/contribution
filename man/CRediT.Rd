@@ -4,7 +4,9 @@
 \name{CRediT}
 \alias{CRediT}
 \title{CRediT}
-\format{A data.frame}
+\format{
+A data.frame
+}
 \source{
 See \url{https://www.casrai.org/credit.html}
 }

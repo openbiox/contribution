@@ -4,9 +4,16 @@
 \alias{pull_github}
 \title{Pull contributions from GitHub}
 \usage{
-pull_github(data = NULL, repo = NULL, owner = NULL,
-  username = NULL, role = NULL, report_lines = FALSE,
-  type = c("all", "add", "del"), .token = NULL)
+pull_github(
+  data = NULL,
+  repo = NULL,
+  owner = NULL,
+  username = NULL,
+  role = NULL,
+  report_lines = FALSE,
+  type = c("all", "add", "del"),
+  .token = NULL
+)
 }
 \arguments{
 \item{data}{a \code{data.frame} contains columns 'repo', 'owner', 'username' and 'role'.

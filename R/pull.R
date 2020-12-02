@@ -22,12 +22,12 @@
 #' )
 pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
                         role = NULL, report_lines = FALSE,
-                        type = c("all", "add", "del"), .token=NULL) {
+                        type = c("all", "add", "del"), .token = NULL) {
   type <- match.arg(type)
 
   .pull <- function(repo = NULL, owner = NULL, username = NULL,
-                      report_lines = FALSE,
-                      type = "all", .token=NULL) {
+                    report_lines = FALSE,
+                    type = "all", .token = NULL) {
     d <- tryCatch(
       expr = {
         gh::gh(
@@ -39,17 +39,19 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
       }, error = function(e) {
         message("The code didn't run successfuly due to the following reason:")
         message(e)
-        message(paste0("Typically have two reasons: ",
-                       "\n\t1): You network is bad ",
-                       "\n\t2): You cannot query GitHub API because of rate limit,",
-                       " use function pull_github_limit() to check it and ",
-                       "more detail please see https://developer.github.com/v3/rate_limit/"))
+        message(paste0(
+          "Typically have two reasons: ",
+          "\n\t1): You network is bad ",
+          "\n\t2): You cannot query GitHub API because of rate limit,",
+          " use function pull_github_limit() to check it and ",
+          "more detail please see https://developer.github.com/v3/rate_limit/"
+        ))
         invisible("404")
       }
     )
 
     if (is.character(d)) {
-        return(NA)
+      return(NA)
     }
 
     cc <- sapply(d, function(x, u = NULL, report_lines = FALSE, type = "all") {
@@ -148,6 +150,6 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
 #'
 #' @examples
 #' pull_github_limit()
-pull_github_limit = function(.token=NULL) {
-    gh::gh("GET /rate_limit", .token = .token)
+pull_github_limit <- function(.token = NULL) {
+  gh::gh("GET /rate_limit", .token = .token)
 }

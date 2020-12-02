@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,7 +41,6 @@
 
 <meta property="og:title" content="Generate contribution table — generate" />
 <meta property="og:description" content="Generate contribution table" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -55,7 +58,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -69,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">contribution</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.0</span>
       </span>
     </div>
 
@@ -90,7 +93,7 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/openbiox/contribution">
+  <a href="https://github.com/openbiox/contribution/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -117,12 +120,27 @@
     <p>Generate contribution table</p>
     </div>
 
-    <pre class="usage"><span class='fu'>generate</span>(<span class='no'>data</span>, <span class='kw'>color_map</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"white"</span>, <span class='st'>"grey"</span>, <span class='st'>"black"</span>),
-  <span class='kw'>palette_name</span> <span class='kw'>=</span> <span class='st'>"github"</span>, <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>caption</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>font_size_x</span> <span class='kw'>=</span> <span class='fl'>16</span>, <span class='kw'>font_size_y</span> <span class='kw'>=</span> <span class='fl'>16</span>, <span class='kw'>text_angle_x</span> <span class='kw'>=</span> <span class='fl'>30</span>,
-  <span class='kw'>text_angle_y</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0.2</span>, <span class='kw'>hjust_y</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>vjust_x</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>vjust_y</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>coord_ratio</span> <span class='kw'>=</span> <span class='fl'>1</span>)</pre>
+    <pre class="usage"><span class='fu'>generate</span><span class='op'>(</span>
+  <span class='va'>data</span>,
+  color_map <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"white"</span>, <span class='st'>"grey"</span>, <span class='st'>"black"</span><span class='op'>)</span>,
+  palette_name <span class='op'>=</span> <span class='st'>"github"</span>,
+  sort <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  show_legend <span class='op'>=</span> <span class='cn'>FALSE</span>,
+  title <span class='op'>=</span> <span class='cn'>NULL</span>,
+  xlab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  ylab <span class='op'>=</span> <span class='cn'>NULL</span>,
+  caption <span class='op'>=</span> <span class='cn'>NULL</span>,
+  tag <span class='op'>=</span> <span class='cn'>NULL</span>,
+  font_size_x <span class='op'>=</span> <span class='fl'>16</span>,
+  font_size_y <span class='op'>=</span> <span class='fl'>16</span>,
+  text_angle_x <span class='op'>=</span> <span class='fl'>30</span>,
+  text_angle_y <span class='op'>=</span> <span class='fl'>0</span>,
+  hjust_x <span class='op'>=</span> <span class='fl'>0.2</span>,
+  hjust_y <span class='op'>=</span> <span class='fl'>1</span>,
+  vjust_x <span class='op'>=</span> <span class='fl'>1</span>,
+  vjust_y <span class='op'>=</span> <span class='fl'>0.5</span>,
+  coord_ratio <span class='op'>=</span> <span class='fl'>1</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,12 +152,17 @@
     <tr>
       <th>color_map</th>
       <td><p>color map for discrete order, either a length-3 vector for 3 contribution level:
-None, Minor and Major; or a <code>Scale</code> object like <code>scale_fill_brewer(palette ="Oranges")</code>.</p></td>
+None, Minor and Major; or a <code>Scale</code> object like <code><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer(palette ="Oranges")</a></code>.</p></td>
     </tr>
     <tr>
       <th>palette_name</th>
       <td><p>palette_name for plotting continuous contributions.
 See <a href='show_palette.html'>show_palette</a> for available options.</p></td>
+    </tr>
+    <tr>
+      <th>sort</th>
+      <td><p>if <code>TRUE</code>, sort the plot to make sure the plot is similar
+what input.</p></td>
     </tr>
     <tr>
       <th>show_legend</th>
@@ -210,45 +233,46 @@ top-left of the plot by default.</p></td>
     <p>a <code>ggplot2</code> object</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>contribution</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/openbiox/contribution'>contribution</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span>
 
 <span class='co'># Paper contributions</span>
-<span class='fu'>generate</span>(<span class='no'>demo</span>)</div><div class='img'><img src='generate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span>(<span class='no'>demo</span>, <span class='kw'>text_angle_x</span> <span class='kw'>=</span> <span class='fl'>20</span>, <span class='kw'>color_map</span> <span class='kw'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span>(<span class='kw'>palette</span> <span class='kw'>=</span> <span class='st'>"Oranges"</span>))</div><div class='img'><img src='generate-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='co'># \donttest{</span>
+<span class='fu'>generate</span><span class='op'>(</span><span class='va'>demo</span><span class='op'>)</span>
+</div><div class='img'><img src='generate-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span><span class='op'>(</span><span class='va'>demo</span>, text_angle_x <span class='op'>=</span> <span class='fl'>20</span>, color_map <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_brewer.html'>scale_fill_brewer</a></span><span class='op'>(</span>palette <span class='op'>=</span> <span class='st'>"Oranges"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='generate-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># \donttest{</span>
 <span class='co'># Github project contributions</span>
-<span class='no'>my_contr</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/dplyr/man/reexports.html'>tibble</a></span>(
-  <span class='kw'>repo</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"UCSCXenaTools"</span>, <span class='st'>"maftools"</span>),
-  <span class='kw'>owner</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"ShixiangWang"</span>, <span class='st'>"PoisonAlien"</span>),
-  <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"ShixiangWang"</span>,
-  <span class='kw'>role</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Developer"</span>, <span class='st'>"Contributor"</span>)
-)
+<span class='va'>my_contr</span> <span class='op'>&lt;-</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>
+  repo <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"UCSCXenaTools"</span>, <span class='st'>"maftools"</span><span class='op'>)</span>,
+  owner <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"ShixiangWang"</span>, <span class='st'>"PoisonAlien"</span><span class='op'>)</span>,
+  username <span class='op'>=</span> <span class='st'>"ShixiangWang"</span>,
+  role <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developer"</span>, <span class='st'>"Contributor"</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='no'>my_contr</span></div><div class='output co'>#&gt; # A tibble: 2 x 4
+<span class='va'>my_contr</span>
+</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 2 x 4</span><span>
 #&gt;   repo          owner        username     role       
-#&gt;   &lt;chr&gt;         &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;      
-#&gt; 1 UCSCXenaTools ShixiangWang ShixiangWang Developer  
-#&gt; 2 maftools      PoisonAlien  ShixiangWang Contributor</div><div class='input'><span class='no'>contr_tb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='pull_github.html'>pull_github</a></span>(<span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>my_contr</span>)
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      
+#&gt; </span><span style='color: #555555;'>1</span><span> UCSCXenaTools ShixiangWang ShixiangWang Developer  
+#&gt; </span><span style='color: #555555;'>2</span><span> maftools      PoisonAlien  ShixiangWang Contributor</div><div class='input'><span class='va'>contr_tb</span> <span class='op'>&lt;-</span> <span class='fu'><a href='pull_github.html'>pull_github</a></span><span class='op'>(</span>data <span class='op'>=</span> <span class='va'>my_contr</span><span class='op'>)</span>
 
-<span class='no'>contr_tb</span></div><div class='output co'>#&gt; # A tibble: 2 x 3
+<span class='va'>contr_tb</span>
+</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 2 x 3</span><span>
 #&gt;   role        `PoisonAlien/maftools` `ShixiangWang/UCSCXenaTools`
-#&gt;   &lt;chr&gt;                        &lt;int&gt;                        &lt;int&gt;
-#&gt; 1 Contributor                      4                            0
-#&gt; 2 Developer                        0                          176</div><div class='input'>
-<span class='fu'>generate</span>(<span class='no'>contr_tb</span>, <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0</span>)</div><div class='img'><img src='generate-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span>(<span class='no'>contr_tb</span>,
-  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hjust_x</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>palette_name</span> <span class='kw'>=</span> <span class='st'>"psychedelic"</span>
-)</div><div class='img'><img src='generate-4.png' alt='' width='700' height='433' /></div><div class='input'># }
-</div></pre>
+#&gt;   </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>                        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>                        </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> Contributor                     10                            0
+#&gt; </span><span style='color: #555555;'>2</span><span> Developer                        0                          214</div><div class='input'>
+<span class='fu'>generate</span><span class='op'>(</span><span class='va'>contr_tb</span>, show_legend <span class='op'>=</span> <span class='cn'>TRUE</span>, hjust_x <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</div><div class='img'><img src='generate-3.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>generate</span><span class='op'>(</span><span class='va'>contr_tb</span>,
+  show_legend <span class='op'>=</span> <span class='cn'>TRUE</span>, hjust_x <span class='op'>=</span> <span class='fl'>0</span>,
+  palette_name <span class='op'>=</span> <span class='st'>"psychedelic"</span>
+<span class='op'>)</span>
+</div><div class='img'><img src='generate-4.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># }</span>
+</div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -259,7 +283,7 @@ top-left of the plot by default.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -4,7 +4,9 @@
 \name{palette}
 \alias{palette}
 \title{palette}
-\format{A data.frame}
+\format{
+A data.frame
+}
 \source{
 See \url{https://github.com/williambelle/github-contribution-color-graph}
 }
