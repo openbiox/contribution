@@ -8,7 +8,7 @@
 A data.frame
 }
 \source{
-See \url{https://www.casrai.org/credit.html}
+See \url{https://casrai.org/credit/}
 }
 \description{
 CRediT
