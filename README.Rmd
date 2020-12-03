@@ -38,7 +38,7 @@ This is inspired by Nick Steinmetz (see twitter <https://twitter.com/SteinmetzNe
 > 4. This format lends itself to a nice extension for including your author contribution information on your CV: a similar table where each column is one of your papers.
 >
 >
-> A difficulty with this is the diversity of terminology used, which would be helped by refinement and more widespread adoption of the CRediT framework (https://www.casrai.org/credit.html ). 
+> A difficulty with this is the diversity of terminology used, which would be helped by refinement and more widespread adoption of the CRediT framework (<https://casrai.org/credit/>). 
 
 ## Feature
 

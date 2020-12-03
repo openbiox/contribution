@@ -44,7 +44,7 @@ twitter
 >
 > A difficulty with this is the diversity of terminology used, which
 > would be helped by refinement and more widespread adoption of the
-> CRediT framework (<https://www.casrai.org/credit.html> ).
+> CRediT framework (<https://casrai.org/credit/>).
 
 ## Feature
 
