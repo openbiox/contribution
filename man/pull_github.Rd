@@ -41,8 +41,10 @@ a `data.frame``
 Pull contributions from GitHub
 }
 \examples{
+\dontrun{
 pull_github(
   repo = "UCSCXenaTools", owner = "ShixiangWang",
   username = "ShixiangWang", role = "developer"
 )
+}
 }

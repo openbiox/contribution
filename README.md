@@ -10,7 +10,7 @@ status](https://ci.appveyor.com/api/projects/status/github/ShixiangWang/contribu
 [![Travis build
 status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://travis-ci.org/openbiox/contribution)
 [![Lifecycle:
-maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+stable](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/contribution)](https://cran.r-project.org/package=contribution)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
@@ -52,6 +52,11 @@ twitter
     -   3-level contribution (i.e. ‘None’, ‘Minor’ and ‘Major’)
     -   numeric contribution
 -   Dataset `palette` contains 27 color maps
+
+An R Shiny application can be found at
+`https://shiny.hiplot.com.cn/contribution-table/`. Corresponding source
+code is available at
+<https://github.com/ShixiangWang/shinyapps/tree/main/contribution-table>.
 
 ## Installation
 
@@ -136,4 +141,3 @@ documentation](https://openbiox.github.io/contribution/).
 -   Accept author contributions information in machine-readable formats,
     e.g. in RIS and Bibtex citation documents provided on journal
     websites.
--   A shiny or addin of RStudio, maybe?

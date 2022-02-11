@@ -12,3 +12,4 @@
 ^contribution\.Rcheck$
 ^contribution.*\.tar\.gz$
 ^contribution.*\.tgz$
+^CRAN-SUBMISSION$

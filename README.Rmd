@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/ShixiangWang/contribution?branch=master&svg=true)](https://ci.appveyor.com/project/ShixiangWang/contribution)
 [![Travis build status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://travis-ci.org/openbiox/contribution)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![CRAN status](https://www.r-pkg.org/badges/version/contribution)](https://cran.r-project.org/package=contribution)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
 <!-- badges: end -->
@@ -46,6 +46,9 @@ This is inspired by Nick Steinmetz (see twitter <https://twitter.com/SteinmetzNe
   * 3-level contribution (i.e. 'None', 'Minor' and 'Major')
   * numeric contribution
 * Dataset `palette` contains 27 color maps
+
+An R Shiny application can be found at `https://shiny.hiplot.com.cn/contribution-table/`.
+Corresponding source code is available at <https://github.com/ShixiangWang/shinyapps/tree/main/contribution-table>.
 
 
 ## Installation
@@ -107,5 +110,4 @@ More usage please see [online documentation](https://openbiox.github.io/contribu
 
 * Support special symbol for indicating equal work in a project/paper
 * Accept author contributions information in machine-readable formats, e.g. in RIS and Bibtex citation documents provided on journal websites.
-* A shiny or addin of RStudio, maybe?
 
