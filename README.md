@@ -10,7 +10,7 @@ status](https://ci.appveyor.com/api/projects/status/github/ShixiangWang/contribu
 [![Travis build
 status](https://travis-ci.org/openbiox/contribution.svg?branch=master)](https://travis-ci.org/openbiox/contribution)
 [![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://www.tidyverse.org/lifecycle/#stable)
+stable](https://img.shields.io/badge/lifecycle-stable-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/contribution)](https://cran.r-project.org/package=contribution)
 [![](https://cranlogs.r-pkg.org/badges/grand-total/contribution?color=green)](https://cran.r-project.org/package=contribution)
@@ -83,7 +83,7 @@ contribution table:
 library(contribution)
 data("demo")
 demo
-#> # A tibble: 5 x 4
+#> # A tibble: 5 × 4
 #>   Class              WWP   NAS   TM   
 #>   <chr>              <chr> <chr> <chr>
 #> 1 Designed research  <NA>  Major Major
