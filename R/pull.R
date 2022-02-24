@@ -39,7 +39,7 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
           .token = .token
         )
       }, error = function(e) {
-        message("The code didn't run successfuly due to the following reason:")
+        message("The code didn't run successfully due to the following reason:")
         message(e)
         message(paste0(
           "Typically have two reasons: ",
