@@ -16,12 +16,10 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' pull_github(
 #'   repo = "UCSCXenaTools", owner = "ShixiangWang",
 #'   username = "ShixiangWang", role = "developer"
 #' )
-#' }
 pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
                         role = NULL, report_lines = FALSE,
                         type = c("all", "add", "del"), .token = NULL) {
@@ -39,12 +37,14 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
           .token = .token
         )
       }, error = function(e) {
-        message("The code didn't run successfully due to the following reason:")
-        message(e)
+        message("The code didn't run successfully with message:\n===========================")
+        message(e$message)
         message(paste0(
-          "Typically have two reasons: ",
-          "\n\t1): You network is bad ",
-          "\n\t2): You cannot query GitHub API because of rate limit,",
+          "===========================\n",
+          "Typically have following reasons: ",
+          "\n\t1): Your network is bad ",
+          "\n\t2): Typos in `repo`, `owner` or `username`",
+          "\n\t3): You cannot query GitHub API because of rate limit,",
           " use function pull_github_limit() to check it and ",
           "more detail please see https://developer.github.com/v3/rate_limit/"
         ))
@@ -108,7 +108,8 @@ pull_github <- function(data = NULL, repo = NULL, owner = NULL, username = NULL,
   data <- data %>%
     dplyr::rowwise() %>%
     dplyr::mutate(
-      contribution = .pull(.data$repo,
+      contribution = .pull(
+        .data$repo,
         .data$owner,
         .data$username,
         report_lines = report_lines,
