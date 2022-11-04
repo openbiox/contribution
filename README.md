@@ -54,7 +54,7 @@ twitter
 -   Dataset `palette` contains 27 color maps
 
 An R Shiny application can be found at
-`https://shiny.hiplot.com.cn/contribution-table/`. Corresponding source
+<https://shiny.hiplot-academic.com/contribution-table/> or <https://shixiangwang.shinyapps.io/contribution/>. Corresponding source
 code is available at
 <https://github.com/ShixiangWang/shinyapps/tree/main/contribution-table>.
 
